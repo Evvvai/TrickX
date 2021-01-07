@@ -1,0 +1,72 @@
+﻿<Window x:Class="TrickX.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TrickX"
+        mc:Ignorable="d"
+        Title="TrickX" Height="720" Width="1200 " WindowStyle="None" ResizeMode="NoResize" Background="#FF1E1E1E" WindowStartupLocation="CenterScreen" Icon="/Res/9X6RRu-_N7M.jpg">
+    <Window.Resources>
+        <local:Base64Converter x:Key="Base64Converter"/>
+    </Window.Resources>
+    
+    <Grid Name="MainGrid" Background="Transparent" MouseDown="ToolBar_MouseDown">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="51"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Name="ToolBar" Grid.Row="0" Background="#FF2F2F2F">
+            <DockPanel Margin="200,0,809,0">
+                <TextBlock Margin="0,5,0,0" TextAlignment="Center" DockPanel.Dock="Top" FontFamily="Arial Black" FontSize="14" Width="100" Foreground="#FFAEAEAE"><Run Language="ru-ru" Text="TrickName"/></TextBlock>
+                <TextBox DockPanel.Dock="Bottom" Width="150" KeyDown="TextBoxTrickName_KeyDown" Height="24"/>
+            </DockPanel>
+            <DockPanel Margin="400,0,659,0">
+                <TextBlock Margin="0,5,0,0" TextAlignment="Center" DockPanel.Dock="Top" FontFamily="Arial Black" FontSize="14" Width="100" Foreground="#FFAEAEAE"><Run Language="ru-ru" Text="TriggerName"/></TextBlock>
+                <TextBox DockPanel.Dock="Bottom" Width="150" KeyDown="TextBoxTriggerName_KeyDown" Height="24"/>
+            </DockPanel>
+            <DockPanel Margin="600,0,459,0">
+                <TextBlock DockPanel.Dock="Top" Margin="0,5,10,0" TextAlignment="Center"  FontFamily="Arial Black" FontSize="14" Width="100" Foreground="#FFAEAEAE"><Run Language="ru-ru" Text="Min   -    Max"/></TextBlock>
+                <TextBox DockPanel.Dock="Left" Width="60" KeyDown="TextBoxMinPoints_KeyDown" Height="24"/>
+                <TextBox DockPanel.Dock="Right" Width="60" KeyDown="TextBoxMaxPoints_KeyDown" Height="24"/>
+            </DockPanel>
+            <DockPanel Margin="750,0,300,0">
+                <TextBlock DockPanel.Dock="Top" Margin="0,5,10,0" TextAlignment="Center"  FontFamily="Arial Black" FontSize="14" Width="100" Foreground="#FFAEAEAE"><Run Language="ru-ru" Text="Min   -    Max"/></TextBlock>
+                <Image DockPanel.Dock="Left" Name="dsf" Margin="25,0,0,0" Height="25 " Width="25" MouseDown="MinButton_MouseDown" Source= "/Res/-.png"></Image>
+                <Image DockPanel.Dock="Right" Name="asd" Margin="25,0,0,0" Height="25 " Width="25" MouseDown="MinButton_MouseDown" Source= "/Res/-.png"></Image>
+            </DockPanel>
+            <DockPanel Margin="850,0,100,0">
+                <TextBlock DockPanel.Dock="Top" Margin="0,5,0,0" TextAlignment="Center"  FontFamily="Arial Black" FontSize="14" Width="100" Foreground="#FFAEAEAE"><Run Language="ru-ru" Text="Video"/></TextBlock>
+                <Image DockPanel.Dock="Bottom" Name="g" Margin="0,0,0,0" Height="20 " Width="20" MouseDown="MinButton_MouseDown" Source= "/Res/sEmpty.png"></Image>
+            </DockPanel>
+
+
+            <StackPanel Orientation="Horizontal" Margin="1123,0,0,0">
+                <Image Name="MinButton" Margin="0,2,8,5" Height="25 " Width="25" MouseDown="MinButton_MouseDown" Source= "/Res/-.png">
+                    <Image.Effect>
+                        <BlurEffect Radius="1" ></BlurEffect>
+                    </Image.Effect>
+                </Image>
+                <Image Name="ExitButton" Margin="4,2,8,4" Height="25" Width="25"  MouseDown="ExitButton_MouseDown" Source="/Res/x.png">
+                    <Image.Effect>
+                        <BlurEffect Radius="1" ></BlurEffect>
+                    </Image.Effect>
+                </Image>
+            </StackPanel>
+
+            <TextBlock x:Name="Tittle" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Arial Black" FontSize="20" Width="176" Foreground="#FFAEAEAE"><Run Language="ru-ru" Text="Points | Name"/></TextBlock>
+
+        </Grid>
+        <Grid Name="MainBar" Grid.Row="1">
+                <ScrollViewer>
+                        <StackPanel></StackPanel>
+                </ScrollViewer>
+            <!--<StackPanel Grid.Row="1">
+                <Image Width="100" Height="100" Source="{Binding Text, ElementName=textbox, Converter={StaticResource Base64Converter}, UpdateSourceTrigger=PropertyChanged, Delay=800}" />
+                <TextBox Padding="5" x:Name="textbox" Margin="5" />
+
+
+            </StackPanel>-->
+            
+        </Grid>
+    </Grid>
+</Window>
